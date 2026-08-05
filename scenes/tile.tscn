@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b7cfni823xspr"]
+
+[ext_resource type="Texture2D" uid="uid://c6c3g0xd60ewi" path="res://resources/white.png" id="1_3dk36"]
+[ext_resource type="Script" uid="uid://b5u1qivc64d35" path="res://scripts/tile.gd" id="1_jy7pm"]
+[ext_resource type="FontFile" uid="uid://crsvs3g4i1n0p" path="res://resources/RobotoMono-VariableFont_wght.ttf" id="2_ywnoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+font = ExtResource("2_ywnoi")
+font_size = 46
+
+[node name="Tile" type="Area2D" unique_id=999566941]
+script = ExtResource("1_jy7pm")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1574551986]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_3dk36")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=902029137]
+visible = false
+shape = SubResource("RectangleShape2D_3xd07")
+
+[node name="TileControl" type="Control" parent="." unique_id=244425727]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="TileLabel" type="Label" parent="TileControl" unique_id=524833317]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_3xd07")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,44 @@
+class_name Player
+extends Actor
+
+
+func _init() -> void:
+	displayed_character = "@"
+	displayed_name = "Player"
+
+
+func _ready() -> void:
+	pass
+
+
+func movement(event: InputEvent) -> bool:
+	var direction: Vector2i
+	
+	if event.is_action_pressed("move_up_left"):    direction = Vector2i(-1, -1)
+	if event.is_action_pressed("move_up"):         direction = Vector2i( 0, -1)
+	if event.is_action_pressed("move_up_right"):   direction = Vector2i( 1, -1)
+	if event.is_action_pressed("move_left"):       direction = Vector2i(-1,  0)
+	if event.is_action_pressed("move_right"):      direction = Vector2i( 1,  0)
+	if event.is_action_pressed("move_down_left"):  direction = Vector2i(-1,  1)
+	if event.is_action_pressed("move_down"):       direction = Vector2i( 0,  1)
+	if event.is_action_pressed("move_down_right"): direction = Vector2i( 1,  1)
+	
+	if direction:
+		var destination_loc: Vector2i = Vector2i(tile.get_grid_loc() + direction)
+		if Util.is_tile_invalid(destination_loc):
+			return false
+		
+		var action: Action
+		var destination_tile: Tile = Util.get_tile(destination_loc)
+		
+		if destination_tile.occupier:
+			print("ATTACKING")
+		else:
+			action = MoveAction.create_for(self, null, {"tile": destination_tile})
+		
+		if action.can_execute():
+			action.execute()
+		
+		return true
+	
+	return false
