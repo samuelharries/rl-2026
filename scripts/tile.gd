@@ -12,7 +12,7 @@ var occupier: Actor:
 	set(value):
 		if _occupier != value:
 			_occupier = value
-			_update_tile()
+			update_tile()
 		if _occupier:
 			_occupier.tile = self
 
@@ -28,7 +28,7 @@ func get_grid_loc() -> Vector2i:
 	return Vector2i(position.x / Util.TILE_SIZE.x, position.y / Util.TILE_SIZE.y)
 
 
-func _update_tile() -> void:
+func update_tile() -> void:
 	if occupier:
 		tile_label.text = occupier.displayed_character
 	else:
