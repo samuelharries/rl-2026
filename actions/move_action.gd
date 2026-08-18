@@ -9,7 +9,7 @@ static func create_for(src: Actor, targ: Actor = null, opts: Dictionary = {}) ->
 	var a: MoveAction = MoveAction.new()
 	a.source = src
 	a.target = targ
-	a.dest_tile = opts.get("tile")
+	a.dest_tile = Util.get_tile(opts.get("tile_loc"))
 	return a
 
 
@@ -18,6 +18,8 @@ func score() -> float:
 
 
 func can_execute() -> bool:
+	if dest_tile.terrain.solid:
+		return false 
 	return true
 
 
