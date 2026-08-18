@@ -1,14 +1,16 @@
 class_name Player
 extends Actor
 
+signal moved
+
+var camera: PlayerCamera
+
 
 func _init() -> void:
 	displayed_character = "@"
 	displayed_name = "Player"
-
-
-func _ready() -> void:
-	pass
+	Util.game.player = self
+	TurnManager.player_ready = true
 
 
 func movement(event: InputEvent) -> bool:
@@ -34,6 +36,7 @@ func movement(event: InputEvent) -> bool:
 		
 		if action.can_execute():
 			action.execute()
+			moved.emit()
 		
 		return true
 	

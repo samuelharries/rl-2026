@@ -7,8 +7,7 @@ var player: Player
 
 func _ready() -> void:
 	Util.game = self
-	player = Player.new()
-	place_actor(player, field.get_random_tile())
+	field.load_level()
 
 
 func _input(event: InputEvent) -> void:
