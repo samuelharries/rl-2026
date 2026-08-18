@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8pm3yb8hm2ep" path="res://scripts/game.gd" id="1_d2op2"]
 [ext_resource type="Script" uid="uid://dgc2g1cw41lm8" path="res://levels/field.gd" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://b7cfni823xspr" path="res://scenes/tile.tscn" id="2_72e8q"]
+[ext_resource type="PackedScene" uid="uid://cs800q1vtuupo" path="res://scenes/player_camera.tscn" id="4_0rdsr"]
 
 [node name="MainGame" type="Node2D" unique_id=1241771645]
 script = ExtResource("1_d2op2")
@@ -10,3 +11,6 @@ script = ExtResource("1_d2op2")
 [node name="Field" type="Node2D" parent="." unique_id=359746647]
 script = ExtResource("1_s3esy")
 tile_scene = ExtResource("2_72e8q")
+
+[node name="PlayerCamera" parent="." unique_id=2140704660 instance=ExtResource("4_0rdsr")]
+position_smoothing_enabled = true
