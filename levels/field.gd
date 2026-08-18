@@ -46,7 +46,7 @@ func load_level(lvl: Level = Level.new(Vector2i(50, 50))) -> bool:
 	if not lvl.last_player_loc and not Util.game.player:
 		Util.game.player = Player.new()
 	
-	Util.game.place_actor(Util.game.player, get_random_tile())
+	Util.game.place_actor(Util.game.player, get_random_accessible_tile())
 	
 	TurnManager.level_ready = true
 	return true
@@ -56,3 +56,11 @@ func get_random_tile() -> Tile:
 	var x: int = randi_range(0, level.size.x - 1)
 	var y: int = randi_range(0, level.size.y - 1)
 	return tiles[x][y]
+
+
+func get_random_accessible_tile() -> Tile:
+	while true:
+		var tile: Tile = get_random_tile()
+		if not tile.terrain.solid:
+			return tile 
+	return
