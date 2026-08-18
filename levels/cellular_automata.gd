@@ -23,9 +23,9 @@ func generate() -> Array[Array]:
 	for x: int in map_size.x:
 		for y: int in map_size.y:
 			if temp_array[x][y] == floor_type.wall:
-				tiles[x][y].terrain = WallTerrain.new()
+				tiles[x][y].convert_terrain(WallTerrain.new())
 			else:
-				tiles[x][y].terrain = FloorTerrain.new()
+				tiles[x][y].convert_terrain(FloorTerrain.new())
 	
 	return tiles
 

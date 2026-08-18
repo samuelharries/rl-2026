@@ -5,7 +5,7 @@ extends Area2D
 @onready var collider: CollisionShape2D = $Collider
 @onready var tile_label: Label = $TileControl/TileLabel
 
-var terrain: Terrain = FloorTerrain.new()
+var terrain: Terrain
 var feature: Feature
 
 var grid_loc: Vector2i = Vector2i.ZERO
@@ -45,12 +45,15 @@ func update_tile() -> void:
 	if feature:
 		tile_label.text = feature.displayed_character
 		return
-	tile_label.text = terrain.displayed_character
+	if tile_label:
+		tile_label.text = terrain.displayed_character
+	if background_sprite:
+		background_sprite.modulate = terrain.background_color
 
 
 func convert_terrain(type: Terrain) -> bool:
 	if type == null:
-		return false
+		push_error("Attempting to convert to a null terrain")
 	terrain = type
 	update_tile()
 	return true
