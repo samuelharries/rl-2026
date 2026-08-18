@@ -1,6 +1,5 @@
 extends Node
 
-const MAP_SIZE: Vector2i = Vector2i(32, 16)
 const TILE_SIZE: Vector2i = Vector2i(64, 64)
 
 var game: Game
@@ -11,6 +10,13 @@ func get_tile(grid: Vector2i) -> Tile:
 
 
 func is_tile_invalid(grid: Vector2i) -> bool:
-	if grid.x < 0 or grid.y < 0 or grid.x > MAP_SIZE.x or grid.y > MAP_SIZE.y:
+	var map_size: Vector2i = game.field.level.size
+	if grid.x < 0 or grid.y < 0 or grid.x > map_size.x - 1 or grid.y > map_size.y - 1:
 		return true
 	return false
+
+
+func get_neighbor_directions(tile: Vector2i) -> Array[Vector2i]:
+	return [tile - Vector2i(-1, -1), tile - Vector2i(0, -1), tile - Vector2i(1, -1),
+			tile - Vector2i(-1,  0),                         tile - Vector2i(1,  0),
+			tile - Vector2i(-1,  1), tile - Vector2i(0,  1), tile - Vector2i(1,  1)]

@@ -5,6 +5,11 @@ extends Area2D
 @onready var collider: CollisionShape2D = $Collider
 @onready var tile_label: Label = $TileControl/TileLabel
 
+var terrain: Terrain = FloorTerrain.new()
+var feature: Feature
+
+var grid_loc: Vector2i = Vector2i.ZERO
+
 var _occupier: Actor = null
 var occupier: Actor:
 	get():
@@ -23,13 +28,29 @@ func _ready() -> void:
 	assert(tile_label, "Tile: Unable to find Label")
 
 
-func get_grid_loc() -> Vector2i:
-	@warning_ignore("narrowing_conversion")
-	return Vector2i(position.x / Util.TILE_SIZE.x, position.y / Util.TILE_SIZE.y)
+func load_tile(new_tile: Tile) -> bool:
+	assert(new_tile, "Tile: Attempted to load a null tile.")
+	terrain = new_tile.terrain
+	if new_tile.feature:
+		feature = new_tile.feature
+	update_tile()
+	return true
 
 
 func update_tile() -> void:
 	if occupier:
 		tile_label.text = occupier.displayed_character
-	else:
-		tile_label.text = ""
+		return
+	# TODO: If Item, display item
+	if feature:
+		tile_label.text = feature.displayed_character
+		return
+	tile_label.text = terrain.displayed_character
+
+
+func convert_terrain(type: Terrain) -> bool:
+	if type == null:
+		return false
+	terrain = type
+	update_tile()
+	return true
