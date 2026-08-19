@@ -64,3 +64,17 @@ func _count_wall_neighbours(array: Array[Array], loc: Vector2i) -> int:
 		if array[neighbor.x][neighbor.y] == floor_type.wall:
 			count = count + 1
 	return count
+
+
+func get_random_tile() -> Tile:
+	var x: int = randi_range(0, map_size.x - 1)
+	var y: int = randi_range(0, map_size.y - 1)
+	return tiles[x][y]
+
+
+func get_random_accessible_tile() -> Tile:
+	while true:
+		var tile: Tile = get_random_tile()
+		if not tile.terrain.solid:
+			return tile 
+	return

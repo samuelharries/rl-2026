@@ -7,4 +7,4 @@ func _init() -> void:
 	displayed_name = "an empty floor"
 	displayed_character = "·"
 	displayed_color = Color.WHITE
-	background_color = Color(0.186, 0.186, 0.186, 1.0)
+	background_color = Color(0.1, 0.1, 0.1, 1.0)

@@ -39,16 +39,16 @@ func load_tile(new_tile: Tile) -> bool:
 
 func update_tile() -> void:
 	if occupier:
-		tile_label.text = occupier.displayed_character
+		tile_label.text = occupier.get_displayed_character()
 		return
 	# TODO: If Item, display item
 	if feature:
-		tile_label.text = feature.displayed_character
+		tile_label.text = feature.get_displayed_character()
 		return
 	if tile_label:
-		tile_label.text = terrain.displayed_character
+		tile_label.text = terrain.get_displayed_character()
 	if background_sprite:
-		background_sprite.modulate = terrain.background_color
+		background_sprite.modulate = terrain.get_background_color()
 
 
 func convert_terrain(type: Terrain) -> bool:
