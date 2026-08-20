@@ -20,6 +20,7 @@ Util="*uid://dqag8skuyrvr"
 EventBus="*uid://b3dhmydcb3qqd"
 SaveLoadManager="*uid://b3w8uk6qu3go5"
 TurnManager="*uid://maaagismq4vy"
+SceneLoader="*uid://c46h1gvcpm85u"
 
 [debug]
 
