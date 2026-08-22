@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="rl2026"
+run/main_scene="uid://csutmbayo2vrj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,7 +21,10 @@ Util="*uid://dqag8skuyrvr"
 EventBus="*uid://b3dhmydcb3qqd"
 SaveLoadManager="*uid://b3w8uk6qu3go5"
 TurnManager="*uid://maaagismq4vy"
+GameManager="*uid://be6ghlevq6jcp"
+LevelManager="*uid://cokkqtnppnq67"
 SceneLoader="*uid://c46h1gvcpm85u"
+FOVManager="*uid://cx62xc0igvklp"
 
 [debug]
 

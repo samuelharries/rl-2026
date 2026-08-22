@@ -43,12 +43,12 @@ func load_level(lvl: Level = Level.new(Vector2i(50, 50))) -> bool:
 		for y: int in lvl.size.y:
 			tiles[x][y].load_tile(lvl.tiles[x][y])
 	
-	if not lvl.last_player_loc and not Util.game.player:
-		Util.game.player = Player.new()
+	if not lvl.last_player_loc and not GameManager.game.player:
+		GameManager.game.player = Player.new()
 	
-	Util.game.place_actor(Util.game.player, get_random_accessible_tile())
+	GameManager.game.place_actor(GameManager.game.player, get_random_accessible_tile())
 	
-	TurnManager.level_ready = true
+	LevelManager.level_ready = true
 	return true
 
 

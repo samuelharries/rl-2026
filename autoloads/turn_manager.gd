@@ -1,45 +1,47 @@
 extends Node
 
-# only let the modules declare ready, turn manager handles unreadying.
-var _player_ready: bool = false
-var player_ready: bool:
-	get:
-		return _player_ready
+signal turn_taken(is_player: bool)
+signal is_player_turn
+
+var actors: Array[Actor]
+var player: Player:
+	get():
+		return GameManager.game.player
 	set(value):
-		if not value:
-			return
-		_player_ready = value
-		ready_checks()
-var _level_ready: bool = false
-var level_ready: bool:
-	get:
-		return _level_ready
-	set(value):
-		if not value:
-			return
-		_level_ready = value
-		ready_checks()
-var _camera_ready: bool = false
-var camera_ready: bool:
-	get:
-		return _camera_ready
-	set(value):
-		if not value:
-			return
-		_camera_ready = value
-		ready_checks()
+		push_error("Attempting to set Player in Turn Manager. Set it through GameManager/Game instead.")
 
 
 func _ready() -> void:
-	EventBus.LEVEL_CHANGING_BEGINNING.connect(_on_level_change_begin)
+	turn_taken.connect(_on_turn_taken)
+	EventBus.LEVEL_LOAD_COMPLETE.connect(_on_level_load_complete)
 
 
-func _on_level_change_begin() -> void:
-	_player_ready = false
-	_level_ready = false
-	_camera_ready = false
+func _on_level_load_complete() -> void:
+	is_player_turn.emit()
 
 
-func ready_checks() -> void:
-	if player_ready and level_ready and camera_ready:
-		EventBus.LOAD_COMPLETE.emit()
+func _on_turn_taken(is_player: bool) -> void:
+	if is_player:
+		take_turns()
+
+
+func take_turns() -> void:
+	if actors.size() > 0:
+		for actor: Actor in actors:
+			actor.brain.take_turn()
+	
+	is_player_turn.emit()
+
+
+func register_actor(actor: Actor) -> bool:
+	if actors.has(actor):
+		return false
+	actors.append(actor)
+	return true
+
+
+func unregister_actor(actor: Actor) -> bool:
+	if actors.has(actor):
+		actors.erase(actor)
+		return true
+	return false

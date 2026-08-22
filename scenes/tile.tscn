@@ -40,3 +40,7 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_3xd07")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FOVSprite" type="Sprite2D" parent="." unique_id=1478444472]
+modulate = Color(0, 0, 0, 0.42745098)
+texture = ExtResource("1_3dk36")

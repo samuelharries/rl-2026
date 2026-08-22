@@ -13,4 +13,5 @@ script = ExtResource("1_s3esy")
 tile_scene = ExtResource("2_72e8q")
 
 [node name="PlayerCamera" parent="." unique_id=2140704660 instance=ExtResource("4_0rdsr")]
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true

@@ -28,6 +28,8 @@ func execute() -> void:
 		old_tile = source.tile
 		source.tile.occupier = null
 	dest_tile.occupier = source
+	
+	TurnManager.turn_taken.emit(source is Player)
 
 
 func undo() -> void:

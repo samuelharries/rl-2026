@@ -2,15 +2,13 @@ extends Node
 
 const TILE_SIZE: Vector2i = Vector2i(64, 64)
 
-var game: Game
-
 
 func get_tile(grid: Vector2i) -> Tile:
-	return game.field.tiles[grid.x][grid.y]
+	return GameManager.game.field.tiles[grid.x][grid.y]
 
 
 func is_tile_invalid(grid: Vector2i) -> bool:
-	var map_size: Vector2i = game.field.level.size
+	var map_size: Vector2i = GameManager.game.field.level.size
 	if grid.x < 0 or grid.y < 0 or grid.x > map_size.x - 1 or grid.y > map_size.y - 1:
 		return true
 	return false

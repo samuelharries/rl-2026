@@ -9,8 +9,9 @@ var camera: PlayerCamera
 func _init() -> void:
 	displayed_character = "@"
 	displayed_name = "Player"
-	Util.game.player = self
-	TurnManager.player_ready = true
+	brain = PlayerBrain.new(self)
+	GameManager.game.player = self
+	LevelManager.player_ready = true
 
 
 func movement(event: InputEvent) -> bool:

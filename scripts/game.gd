@@ -6,7 +6,7 @@ var player: Player
 
 
 func _ready() -> void:
-	Util.game = self
+	GameManager.game = self
 	SaveLoadManager.register(self)
 	field.load_level()
 
