@@ -25,6 +25,7 @@ GameManager="*uid://be6ghlevq6jcp"
 LevelManager="*uid://cokkqtnppnq67"
 SceneLoader="*uid://c46h1gvcpm85u"
 FOVManager="*uid://cx62xc0igvklp"
+MobManager="*uid://bbyynhxi8gjfl"
 
 [debug]
 

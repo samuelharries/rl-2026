@@ -46,7 +46,7 @@ func load_level(lvl: Level = Level.new(Vector2i(50, 50))) -> bool:
 	if not lvl.last_player_loc and not GameManager.game.player:
 		GameManager.game.player = Player.new()
 	
-	GameManager.game.place_actor(GameManager.game.player, get_random_accessible_tile())
+	MobManager.place_actor(GameManager.game.player, get_random_accessible_tile())
 	
 	LevelManager.level_ready = true
 	return true

@@ -39,6 +39,8 @@ func load_tile(new_tile: Tile) -> bool:
 	terrain = new_tile.terrain
 	if new_tile.feature:
 		feature = new_tile.feature
+	if new_tile.occupier:
+		occupier = new_tile.occupier
 	update_tile()
 	return true
 
@@ -63,7 +65,8 @@ func _update_visibility() -> void:
 		fov_sprite.modulate = Color(0.0, 0.0, 0.0, 0.7)
 		_update_tile_label(false)
 		return
-	fov_sprite.modulate = Color(0.0, 0.0, 0.0, 1)
+	if fov_sprite:
+		fov_sprite.modulate = Color(0.0, 0.0, 0.0, 1)
 	_update_tile_label(false)
 
 

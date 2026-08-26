@@ -18,3 +18,8 @@ func get_neighbor_directions(tile: Vector2i) -> Array[Vector2i]:
 	return [tile - Vector2i(-1, -1), tile - Vector2i(0, -1), tile - Vector2i(1, -1),
 			tile - Vector2i(-1,  0),                         tile - Vector2i(1,  0),
 			tile - Vector2i(-1,  1), tile - Vector2i(0,  1), tile - Vector2i(1,  1)]
+
+
+func pick_random(dictionary: Dictionary) -> Variant:
+	var random_key: Variant = dictionary.keys().pick_random()
+	return dictionary[random_key]
