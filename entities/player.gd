@@ -33,7 +33,10 @@ func movement(event: InputEvent) -> bool:
 		
 		var action: Action
 		
-		action = MoveAction.create_for(self, null, {"tile_loc": destination_loc})
+		if Util.get_tile(destination_loc).occupier:
+			action = AttackAction.create_for(self, Util.get_tile(destination_loc).occupier)
+		else:
+			action = MoveAction.create_for(self, null, {"tile_loc": destination_loc})
 		
 		if action.can_execute():
 			action.execute()
