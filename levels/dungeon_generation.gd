@@ -22,3 +22,17 @@ func _initialise_tiles_array() -> void:
 			new_tile.grid_loc = Vector2(x, y)
 			row.append(new_tile)
 		tiles.append(row)
+
+
+func get_random_tile() -> Tile:
+	var x: int = randi_range(0, map_size.x - 1)
+	var y: int = randi_range(0, map_size.y - 1)
+	return tiles[x][y]
+
+
+func get_random_accessible_tile() -> Tile:
+	while true:
+		var tile: Tile = get_random_tile()
+		if not tile.terrain.solid:
+			return tile 
+	return
