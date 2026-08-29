@@ -10,6 +10,7 @@ func _init() -> void:
 	displayed_character = "@"
 	displayed_name = "Player"
 	brain = PlayerBrain.new(self)
+	body = Body.new(self)
 	GameManager.game.player = self
 	LevelManager.player_ready = true
 
