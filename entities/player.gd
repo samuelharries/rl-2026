@@ -16,6 +16,9 @@ func _init() -> void:
 
 
 func movement(event: InputEvent) -> bool:
+	if GameManager.menu_open:
+		return false
+	
 	var direction: Vector2i
 	
 	if event.is_action_pressed("move_up_left"):    direction = Vector2i(-1, -1)

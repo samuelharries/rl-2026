@@ -1,10 +1,10 @@
 class_name MainMenu
 extends Node2D
 
-@onready var new_game_button: Button = $CanvasLayer/Control/MainButtonContainer/NewGameButton
-@onready var load_game_button: Button = $CanvasLayer/Control/MainButtonContainer/LoadGameButton
-@onready var options_button: Button = $CanvasLayer/Control/MainButtonContainer/OptionsButton
-@onready var quit_button: Button = $CanvasLayer/Control/MainButtonContainer/QuitButton
+@onready var new_game_button: Button = $CanvasLayer/Control/MarginContainer/MainButtonContainer/NewGameButton
+@onready var load_game_button: Button = $CanvasLayer/Control/MarginContainer/MainButtonContainer/LoadGameButton
+@onready var options_button: Button = $CanvasLayer/Control/MarginContainer/MainButtonContainer/OptionsButton
+@onready var quit_button: Button = $CanvasLayer/Control/MarginContainer/MainButtonContainer/QuitButton
 
 
 func _ready() -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csutmbayo2vrj"]
 
 [ext_resource type="Script" uid="uid://da2omo8sw2k8i" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://iy45i3ubftho" path="res://resources/matrix_theme.tres" id="2_ekxnf"]
 
 [node name="MainMenu" type="Node2D" unique_id=1659235913]
 script = ExtResource("1_l6cm7")
@@ -14,36 +15,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ekxnf")
 
-[node name="MainButtonContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1977450167]
+[node name="BackgroundPanel" type="Panel" parent="CanvasLayer/Control" unique_id=234511791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/BackgroundPanel" unique_id=1662587954]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -43.0
+offset_right = 346.0
+offset_bottom = 43.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 150
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/BackgroundPanel/MarginContainer" unique_id=94823509]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "// evolve"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=131409790]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -386.0
-offset_top = -181.5
-offset_right = -97.0
-offset_bottom = 181.5
+offset_left = -95.0
+offset_top = -60.0
+offset_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 50
+
+[node name="MainButtonContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1977450167]
+layout_mode = 2
 alignment = 1
 
-[node name="NewGameButton" type="Button" parent="CanvasLayer/Control/MainButtonContainer" unique_id=795102005]
+[node name="NewGameButton" type="Button" parent="CanvasLayer/Control/MarginContainer/MainButtonContainer" unique_id=795102005]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[node name="LoadGameButton" type="Button" parent="CanvasLayer/Control/MainButtonContainer" unique_id=5349398]
+[node name="LoadGameButton" type="Button" parent="CanvasLayer/Control/MarginContainer/MainButtonContainer" unique_id=5349398]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 disabled = true
 text = "Load Game"
 
-[node name="OptionsButton" type="Button" parent="CanvasLayer/Control/MainButtonContainer" unique_id=1391752892]
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Control/MarginContainer/MainButtonContainer" unique_id=1391752892]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 disabled = true
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/Control/MainButtonContainer" unique_id=159965692]
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/MarginContainer/MainButtonContainer" unique_id=159965692]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit"

@@ -18,7 +18,14 @@ func can_execute() -> bool:
 
 
 func execute() -> void:
-	Util.get_tree().quit()
+	var ui: PauseUI = GameManager.game.pause_ui
+	if ui.visible:
+		if ui.is_deeper_window_open():
+			ui.on_back_button_pressed()
+		else:
+			ui.close_ui()
+	else:
+		ui.open_ui()
 
 
 func undo() -> void:

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://b8bsko7x4xtqs"]
+
+[ext_resource type="Script" uid="uid://bqv05ythfbdel" path="res://scripts/pause_ui.gd" id="1_ypbrs"]
+[ext_resource type="Theme" uid="uid://iy45i3ubftho" path="res://resources/matrix_theme.tres" id="2_x4jx1"]
+
+[node name="PauseUI" type="CanvasLayer" unique_id=462647373]
+visible = false
+script = ExtResource("1_ypbrs")
+
+[node name="PauseControl" type="Control" parent="." unique_id=285406399]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_x4jx1")
+
+[node name="ScreenDarkenPanel" type="Panel" parent="PauseControl" unique_id=1712460411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseControl/ScreenDarkenPanel" unique_id=1593922177]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_right = 28.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="PauseLabel" type="Label" parent="PauseControl/ScreenDarkenPanel/MarginContainer" unique_id=604944887]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "PAUSED"
+
+[node name="MenuPanel" type="Panel" parent="PauseControl" unique_id=2090898854]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -144.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseControl/MenuPanel" unique_id=728157016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 20
+
+[node name="MenuContainer" type="VBoxContainer" parent="PauseControl/MenuPanel/MarginContainer" unique_id=146517705]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PauseControl/MenuPanel/MarginContainer/MenuContainer" unique_id=1345956814]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME"
+
+[node name="OptionsButton" type="Button" parent="PauseControl/MenuPanel/MarginContainer/MenuContainer" unique_id=236900667]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+
+[node name="DebugButton" type="Button" parent="PauseControl/MenuPanel/MarginContainer/MenuContainer" unique_id=670814555]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "DEBUG"
+
+[node name="SaveButton" type="Button" parent="PauseControl/MenuPanel/MarginContainer/MenuContainer" unique_id=1308534113]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SAVE"
+
+[node name="QuitButton" type="Button" parent="PauseControl/MenuPanel/MarginContainer/MenuContainer" unique_id=1395067203]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
+[node name="OptionsPanel" type="Panel" parent="PauseControl" unique_id=571078185]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -145.0
+offset_right = 450.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseControl/OptionsPanel" unique_id=1594338743]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -40.0
+offset_right = 27.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="BackButton" type="Button" parent="PauseControl/OptionsPanel/MarginContainer" unique_id=1501625798]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "  BACK  "

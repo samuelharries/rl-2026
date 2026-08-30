@@ -2,6 +2,8 @@ class_name Game
 extends Node2D
 
 @onready var field: Field = $Field
+@onready var pause_ui: PauseUI = $PauseUI
+
 var player: Player
 
 

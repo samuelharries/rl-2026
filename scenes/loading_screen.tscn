@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://ebtdmdbskdyp"]
 
 [ext_resource type="Script" uid="uid://b357trvac4ifr" path="res://autoloads/loading_screen.gd" id="1_ep5rh"]
-[ext_resource type="FontFile" uid="uid://crsvs3g4i1n0p" path="res://resources/RobotoMono-VariableFont_wght.ttf" id="2_hprjd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xd07"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="Theme" uid="uid://iy45i3ubftho" path="res://resources/matrix_theme.tres" id="2_hprjd"]
 
 [sub_resource type="Animation" id="Animation_hprjd"]
 length = 0.001
@@ -53,7 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3xd07")
+theme = ExtResource("2_hprjd")
 
 [node name="Label" type="Label" parent="Panel" unique_id=1971774669]
 layout_mode = 1
@@ -68,9 +65,8 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_hprjd")
 theme_override_font_sizes/font_size = 64
-text = "Loading..."
+text = "// loading..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1194991275]
 libraries/ = SubResource("AnimationLibrary_5phy8")

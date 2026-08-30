@@ -1,0 +1,29 @@
+[gd_resource type="Theme" format=3 uid="uid://iy45i3ubftho"]
+
+[ext_resource type="FontFile" uid="uid://crsvs3g4i1n0p" path="res://resources/RobotoMono-VariableFont_wght.ttf" id="1_jhv2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2esf"]
+bg_color = Color(0, 1, 0.25490198, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdri6"]
+bg_color = Color(0.050980393, 0.007843138, 0.03137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 0.25490198, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkxjo"]
+bg_color = Color(0.050980393, 0.007843138, 0.03137255, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 1, 0.25490198, 1)
+Button/colors/font_hover_color = Color(0.050980393, 0.007843138, 0.03137255, 1)
+Button/fonts/font = ExtResource("1_jhv2f")
+Button/styles/hover = SubResource("StyleBoxFlat_y2esf")
+Button/styles/normal = SubResource("StyleBoxFlat_rdri6")
+CheckButton/colors/button_checked_color = Color(0, 1, 0.25490198, 1)
+CheckButton/colors/button_unchecked_color = Color(0, 1, 0.25490198, 1)
+Label/colors/font_color = Color(0, 1, 0.25490198, 1)
+Label/fonts/font = ExtResource("1_jhv2f")
+Panel/styles/panel = SubResource("StyleBoxFlat_tkxjo")
